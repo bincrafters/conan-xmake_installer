@@ -17,16 +17,17 @@ class XmakeInstallerConan(ConanFile):
     exports = ["LICENSE.md"]
     settings = "os_build"
     _source_subfolder = "source_subfolder"
-        
-    def source(self):
-        checksum = "c73d34805ab26d214f22fee74bf033942f91ce43bfc028663ffb910ad22c2c5d"
-        tools.get(f"{self.homepage}/archive/v{self.version}.tar.gz", sha256=checksum)
-        extracted_dir = "xmake-" + self.version
-        os.rename(extracted_dir, self._source_subfolder)      
+
+    # TODO: Implement build-from-source on all platforms to replace binary download
+    # def source(self):
+        # checksum = "c73d34805ab26d214f22fee74bf033942f91ce43bfc028663ffb910ad22c2c5d"
+        # tools.get(f"{self.homepage}/archive/v{self.version}.tar.gz", sha256=checksum)
+        # extracted_dir = "xmake-" + self.version
+        # os.rename(extracted_dir, self._source_subfolder)      
 
     def build(self):
             if self.settings.os_build == "Windows":
-                # need simple instructions on build from source with standard build tools
+                tools.download("https://github.com/tboox/xmake/releases/download/v2.2.3/xmake-v2.2.3.exe", "xmake.exe")
             else:
                 # need simple instructions on build from source with standard build tools
 
