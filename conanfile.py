@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 from conans import ConanFile, tools
 import os
 
@@ -12,9 +9,7 @@ class XmakeInstallerConan(ConanFile):
     topics = ("conan", "xmake", "tboox", "installer", "build_system")
     url = "https://github.com/bincrafters/conan-xmake_installer"
     homepage = "https://github.com/tboox/xmake"
-    author = "Bincrafters <bincrafters@gmail.com>"
     license = "MIT"
-    exports = ["LICENSE.md"]
     settings = "os_build"
     _source_subfolder = "source_subfolder"
 
