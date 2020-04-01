@@ -1,13 +1,13 @@
 environment:
-  PYTHON: "C:\\Python37"
+  PYTHON_HOME: "C:\\Python37"
 
   matrix:
       - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
 
 install:
-  - set PATH=%PATH%;%PYTHON%/Scripts/
+  - set PATH=%PYTHON_HOME%;%PYTHON_HOME%/Scripts/;%PATH%
   - pip install incrafters_package_tools
   - conan user # It creates the conan data directory
 
 build_script:
-    - python build.py
+    - bincrafters-package-tools --auto
